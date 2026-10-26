@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta name="google-site-verification" content="Lqg7jMTtsiGaZsaLWNSkSKYNDtme-aopRmU636tkH5s" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Дентренз — начинающий SMM-специалист, программист junior.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Дентренз — Сайты и контент</title>
+
+  <style>
+    /* ОСНОВНЫЕ НАСТРОЙКИ */
+    :root {
+      --bg: #0a0a0a;
+      --surface: #121212;
+      --surface-light: #191919;
+      --text: #f5f5f5;
+      --muted: #a1a1a1;
+      --red: #ff303b;
+      --red-dark: #c91620;
+      --line: rgba(255, 255, 255, 0.1);
+      --radius: 22px;
+      --page-width: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      min-width: 320px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--page-width), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      width: 24px;
+      height: 1px;
+      background: var(--red);
+      content: "";
+    }
+
+    .section-title {
+      max-width: 720px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .section-description {
+      max-width: 590px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .accent {
+      color: var(--red);
+    }
+
+    /* ШАПКА */
+    .header {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid transparent;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .header.scrolled {
+      border-color: var(--line);
+      background: rgba(10, 10, 10, 0.88);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      display: flex;
+      height: 76px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    .logo span {
+      color: var(--red);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      color: #c5c5c5;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+    }
+
+    .nav-contact {
+      padding: 10px 17px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    /* КНОПКИ */
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 23px;
+      border: 1px solid var(--red);
+      border-radius: 999px;
+      background: var(--red);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: var(--red-dark);
+      box-shadow: 0 10px 30px rgba(255, 48, 59, 0.22);
+    }
+
+    .button-secondary {
+      border-color: var(--line);
+      background: transparent;
+    }
+
+    .button-secondary:hover {
+      border-color: var(--red);
+      background: rgba(255, 48, 59, 0.08);
+      box-shadow: none;
+    }
+        /* ПЕРВЫЙ ЭКРАН */
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 760px;
+      align-items: center;
+      padding: 130px 0 90px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      position: absolute;
+      top: 10%;
+      right: -170px;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 48, 59, 0.18), transparent 68%);
+      content: "";
+      pointer-events: none;
+      animation: glow 7s ease-in-out infinite alternate;
+    }
+
+    .hero::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1px);
+      background-size: 30px 30px;
+      opacity: 0.14;
+      mask-image: linear-gradient(to left, black, transparent);
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 26px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      color: #d0d0d0;
+      font-size: 12px;
+    }
+
+    .availability-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #5cdd91;
+      box-shadow: 0 0 12px rgba(92, 221, 145, 0.7);
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      font-size: clamp(54px, 9vw, 108px);
+      line-height: 0.96;
+      letter-spacing: -0.075em;
+    }
+
+    .hero h1 .outline {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.7);
+    }
+
+    .hero-text {
+      max-width: 560px;
+      margin-top: 28px;
+      color: #b5b5b5;
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .hero-note {
+      margin-top: 22px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 65px;
+      color: #858585;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-bottom-line {
+      width: 44px;
+      height: 1px;
+      background: var(--red);
+    }
+
+    /* УСЛУГИ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .service-card {
+      min-height: 250px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, #151515, #0e0e0e);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 48, 59, 0.55);
+    }
+
+    .service-number {
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .service-card h3 {
+      margin-top: 35px;
+      font-size: 21px;
+      letter-spacing: -0.03em;
+    }
+
+    .service-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ОБО МНЕ */
+    .about {
+      border-block: 1px solid var(--line);
+      background: #0d0d0d;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .about-card {
+      position: relative;
+      display: flex;
+      min-height: 410px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px;
+      border: 1px solid rgba(255, 48, 59, 0.25);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,48,59,0.22), transparent 32%),
+        linear-gradient(145deg, #1b1112, #101010 60%);
+      overflow: hidden;
+    }
+
+    .about-card::after {
+      position: absolute;
+      right: -30px;
+      bottom: -95px;
+      color: rgba(255,255,255,0.05);
+      content: "D";
+      font-size: 390px;
+            font-weight: 900;
+      line-height: 1;
+    }
+
+    .about-card-top,
+    .about-card-bottom {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-card-top {
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    .about-card-name {
+      font-size: clamp(35px, 5vw, 58px);
+      font-weight: 900;
+      letter-spacing: -0.07em;
+    }
+
+    .about-card-bottom {
+      color: #c3c3c3;
+      font-size: 13px;
+    }
+
+    .about-copy .section-title {
+      font-size: clamp(34px, 4.4vw, 52px);
+    }
+
+    .about-copy p {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .about-point {
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: #ddd;
+      font-size: 13px;
+    }
+
+    .about-point span {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* ПОРТФОЛИО */
+    .portfolio-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .portfolio-note {
+      max-width: 290px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 44px;
+    }
+
+    .project-card {
+      position: relative;
+      display: flex;
+      min-height: 310px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 85% 18%, rgba(255,48,59,0.2), transparent 28%),
+        linear-gradient(145deg, #181818, #101010);
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 48, 59, 0.5);
+    }
+
+    .project-tag {
+      width: fit-content;
+      padding: 7px 11px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      color: #ccc;
+      font-size: 11px;
+    }
+
+    .project-visual {
+      position: absolute;
+      top: 60px;
+      right: 28px;
+      display: grid;
+      width: 145px;
+      height: 145px;
+      place-items: center;
+      border: 1px solid rgba(255,48,59,0.3);
+      border-radius: 50%;
+      background: rgba(255,48,59,0.06);
+      color: var(--red);
+      font-size: 42px;
+      font-weight: 900;
+      transform: rotate(-12deg);
+    }
+
+    .project-visual::after {
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed rgba(255,48,59,0.45);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .project-info {
+      position: relative;
+      z-index: 1;
+      max-width: 70%;
+    }
+
+    .project-info h3 {
+      font-size: 23px;
+    }
+
+    .project-info p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .project-footnote {
+      margin-top: 20px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    /* ПРОЦЕСС */
+    .process {
+      background: #0d0d0d;
+    }
+
+    .process-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 45px;
+    }
+
+    .process-step {
+      padding: 22px 18px;
+      border-top: 1px solid var(--red);
+      background: linear-gradient(180deg, rgba(255,48,59,0.06), transparent);
+    }
+
+    .process-step span {
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .process-step h3 {
+      margin-top: 20px;
+      font-size: 17px;
+    }
+
+    .process-step p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* КОНТАКТЫ */
+    .contact-panel {
+      position: relative;
+      padding: clamp(30px, 7vw, 75px);
+      border: 1px solid rgba(255,48,59,0.28);
+      border-radius: 30px;
+      background:
+              radial-gradient(circle at 85% 20%, rgba(255,48,59,0.2), transparent 35%),
+        #111;
+      overflow: hidden;
+    }
+
+    .contact-panel h2 {
+      max-width: 720px;
+      font-size: clamp(38px, 7vw, 76px);
+      line-height: 1;
+      letter-spacing: -0.065em;
+    }
+
+    .contact-panel p {
+      max-width: 500px;
+      margin-top: 20px;
+      color: #aaa;
+    }
+
+    .contact-panel .button {
+      margin-top: 30px;
+    }
+
+    /* ПОДВАЛ */
+    .footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: #777;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer a:hover {
+      color: var(--red);
+    }
+
+    /* АНИМАЦИИ ПОЯВЛЕНИЯ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes glow {
+      from { transform: translateY(-10px) scale(0.95); opacity: 0.7; }
+      to { transform: translateY(25px) scale(1.08); opacity: 1; }
+    }
+
+    /* АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ */
+    @media (max-width: 760px) {
+      .section {
+        padding: 78px 0;
+      }
+
+      .nav {
+        height: 68px;
+      }
+
+      .menu-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 68px;
+        right: 20px;
+        left: 20px;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: #111;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 13px;
+      }
+
+      .nav-links .nav-contact {
+        margin-top: 5px;
+        text-align: center;
+      }
+
+      .hero {
+        min-height: 700px;
+        padding-top: 120px;
+      }
+
+      .hero::before {
+        top: 20%;
+        right: -300px;
+      }
+
+      .hero-text {
+        font-size: 15px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        margin-top: 32px;
+      }
+
+      .service-card {
+        min-height: 205px;
+      }
+
+      .service-card h3 {
+        margin-top: 23px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .about-card {
+        min-height: 320px;
+      }
+
+      .portfolio-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+      }
+
+      .project-card {
+        min-height: 280px;
+      }
+
+      .process-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .container {
+        width: min(var(--page-width), calc(100% - 30px));
+      }
+
+      .hero h1 {
+        font-size: 54px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .about-points {
+        grid-template-columns: 1fr;
+      }
+
+      .process-list {
+        grid-template-columns: 1fr;
+      }
+
+      .project-info {
+        max-width: 85%;
+      }
+
+      .project-visual {
+        top: 55px;
+        right: -28px;
+        width: 115px;
+        height: 115px;
+        font-size: 32px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header" id="header">
+    <div class="container nav">
+      <a class="logo" href="#home" aria-label="Дентренз — на главную">
+                DENTRENZ<span>.</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Услуги</a>
+        <a href="#about">Обо мне</a>
+        <a href="#portfolio">Работы</a>
+        <a href="#process">Как работаю</a>
+        <a class="nav-contact" href="https://t.me/dentrenz" target="_blank" rel="noopener">
+          Написать мне ↗
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content reveal">
+          <div class="availability">
+            <span class="availability-dot"></span>
+            Открыт к новым проектам
+          </div>
+
+          <h1>
+            Контент,<br>
+            который <span class="outline">замечают.</span>
+          </h1>
+
+          <p class="hero-text">
+            Я Дентренз — начинающий SMM-специалист и разработчик.
+            Помогаю создавать идеи, оформлять контент и развивать присутствие в соцсетях.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="https://t.me/dentrenz" target="_blank" rel="noopener">
+              Обсудить проект <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button-secondary" href="#services">
+              Посмотреть услуги
+            </a>
+          </div>
+
+          <p class="hero-note">
+            Начинаю свой путь в SMM — внимательно отношусь к задачам и открыт к обратной связи.
+          </p>
+
+          <div class="hero-bottom">
+            <span class="hero-bottom-line"></span>
+            Листай ниже
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Чем могу помочь</span>
+          <h2 class="section-title">Идея — в контент.<br><span class="accent">Контент — в систему.</span></h2>
+          <p class="section-description">
+            Помогаю с отдельными задачами и постепенно развиваю навыки в SMM.
+            Объём и формат работы можно обсудить лично.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <span class="service-number">01 / SMM</span>
+            <h3>Идеи и контент-план</h3>
+            <p>Темы для публикаций, рубрики и простой план контента под цели проекта.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-number">02 / CONTENT</span>
+            <h3>Тексты и публикации</h3>
+            <p>Помощь с постами, подписями, сторис и подачей материалов для соцсетей.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-number">03 / BLOG</span>
+            <h3>Блог и визуальная подача</h3>
+            <p>Поиск тем, оформление идей и поддержка регулярного ведения блога.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <div class="about-card reveal">
+          <div class="about-card-top">SMM • CONTENT • BLOG</div>
+          <div class="about-card-name">Дентренз<span class="accent">.</span></div>
+          <div class="about-card-bottom">Начинающий специалист — расту с каждым проектом</div>
+        </div>
+
+        <div class="about-copy reveal">
+          <span class="section-label">Немного обо мне</span>
+          <h2 class="section-title">Свежий взгляд.<br>Внимание к деталям.</h2>
+          <p>
+            Я начинающий специалист, интересуюсь SMM, маркетийнгом, обновление и создание сайтов визитка,лендинг.
+            Не обещаю мгновенных результатов — вместо этого предлагаю внимательный подход,
+            готовность учиться и честное обсуждение задач.
+          </p>
+          <p>
+            Сейчас собираю практический опыт и открыт к первым проектам, тестовым задачам
+            и сотрудничеству.
+                      </p>
+
+          <div class="about-points">
+            <div class="about-point">
+              <span>Подход</span>
+              Вникаю в задачу
+            </div>
+            <div class="about-point">
+              <span>Фокус</span>
+              Контент и соцсети
+            </div>
+            <div class="about-point">
+              <span>Формат</span>
+              Обсудим лично
+            </div>
+            <div class="about-point">
+              <span>Связь</span>
+              Telegram
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="portfolio-heading reveal">
+          <div>
+            <span class="section-label">Портфолио</span>
+            <h2 class="section-title">Практика — мой<br><span class="accent">следующий шаг.</span></h2>
+          </div>
+          <p class="portfolio-note">
+            Реальных кейсов пока нет, поэтому здесь указаны учебные направления.
+            Этот блок можно заменить на свои работы.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <span class="project-tag">Учебная концепция</span>
+            <div class="project-visual" aria-hidden="true">01</div>
+            <div class="project-info">
+              <h3>Контент для личного блога</h3>
+              <p>Рубрики, идеи публикаций и варианты подачи для регулярного блога.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <span class="project-tag">Учебная концепция</span>
+            <div class="project-visual" aria-hidden="true">02</div>
+            <div class="project-info">
+              <h3>Старт SMM-проекта</h3>
+              <p>Пример структуры контент-плана и оформления социальных сетей.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="project-footnote reveal">
+          Концепции не являются кейсами для реальных клиентов.
+        </p>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Понятный процесс</span>
+          <h2 class="section-title">От задачи —<br>к готовому контенту.</h2>
+        </div>
+
+        <div class="process-list">
+          <article class="process-step reveal">
+            <span>ШАГ 01</span>
+            <h3>Знакомимся</h3>
+            <p>Обсуждаем проект, аудиторию и то, что хочется получить.</p>
+          </article>
+          <article class="process-step reveal">
+            <span>ШАГ 02</span>
+            <h3>Собираем идеи</h3>
+            <p>Выбираем направление, темы и подходящий формат работы.</p>
+          </article>
+          <article class="process-step reveal">
+            <span>ШАГ 03</span>
+            <h3>Готовлю материалы</h3>
+            <p>Работаю над контентом и согласую результат с вами.</p>
+          </article>
+          <article class="process-step reveal">
+            <span>ШАГ 04</span>
+            <h3>Улучшаем</h3>
+            <p>Обсуждаем обратную связь и следующие шаги.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <span class="section-label">Контакты</span>
+          <h2>Есть идея?<br><span class="accent">Давай обсудим.</span></h2>
+          <p>
+            Напиши мне в Telegram: расскажи о проекте и о том, какая помощь нужна.
+            Обсудим формат и дальнейшие шаги.
+          </p>
+          <a class="button" href="https://t.me/dentrenz" target="_blank" rel="noopener">
+            Telegram: @dentrenz <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Дентренз</span>
+            <a href="https://t.me/dentrenz" target="_blank" rel="noopener">Telegram: @dentrenz ↗</a>
+      <span>Сделано с вниманием к деталям</span>
+    </div>
+  </footer>
+
+  <script>
+    // Меняем оформление шапки при прокрутке
+    const header = document.querySelector("#header");
+
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 20);
+    });
+
+    // Мобильное меню
+    const menuToggle = document.querySelector("#menuToggle");
+    const navLinks = document.querySelector("#navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    // Закрываем мобильное меню после перехода по ссылке
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Появление блоков при прокрутке
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    // Автоматически подставляем текущий год
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
